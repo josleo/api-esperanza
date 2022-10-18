@@ -147,6 +147,7 @@ def  year():
     miConexion = mysql.connector.connect( host=database_ip, user= database_username, passwd=database_password, db=database_name )
     cur = miConexion.cursor()
     cur.execute("SELECT p.country as pais ,c.continentes as continente ,e.* FROM tb_paises AS  p INNER JOIN tb_continente AS c ON p.id_continente = c.id_continente INNER JOIN tb_esperanza AS e ON e.country = p.id_paises;")
+    api2=[]
     datos_total  = cur.fetchall()
     for  a  in datos_total :
         total = {
@@ -173,7 +174,7 @@ def  year():
         'desempleo_total':a[20],
         'mortalidad_accidentes_transito': a[21],
         'acceso_a_la_electricidad':a[22]}
-        api.append(total) 
+        api2.append(total) 
     miConexion.close()
 
-    return {"api2": api}
+    return {"api2": api2}
