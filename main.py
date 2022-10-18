@@ -93,15 +93,13 @@ def  year():
         'crecimiento_masa_monetaria_inflacion':fila[13],
         'tasa_mort_5anios_cada_mil':fila[14],
         'crecimiento_poblacion':fila[15],
-        'esperanza_vida_mujeres_anios':fila[16],
-        'esperanza_vida_hombres_anios':fila[17],
-        'Tasa_fertilidad_mujeres':fila[18],
-        'PBI_per_capita':fila[19],
-        'desempleo_total':fila[20],
-        'mortalidad_accidentes_transito':fila[21],
-        'acceso_a_la_electricidad':fila[22],
-        'producción_de_energía_eléctrica_renovable':fila[23],
-        'id_continente':fila[24]}
+        'Tasa_fertilidad_mujeres':fila[16],
+        'PBI_per_capita':fila[17],
+        'desempleo_total':fila[18],
+        'mortalidad_accidentes_transito':fila[19],
+        'acceso_a_la_electricidad':fila[20],
+        'producción_de_energía_eléctrica_renovable':fila[21],
+        'id_continente':fila[22]}
         esperanza.append(esperanza_) 
     miConexion.close()
 
