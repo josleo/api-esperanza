@@ -98,8 +98,7 @@ def  year():
         'desempleo_total':fila[18],
         'mortalidad_accidentes_transito':fila[19],
         'acceso_a_la_electricidad':fila[20],
-        'producción_de_energía_eléctrica_renovable':fila[21],
-        'id_continente':fila[22]}
+        'id_continente':fila[21]}
         esperanza.append(esperanza_) 
     miConexion.close()
 
