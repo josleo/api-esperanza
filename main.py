@@ -11,12 +11,14 @@ database_name     = 'Tabla_prueba'
 
 @app.get("/")
 def read_root():
-    list = ["[bienvenidos al  api de esperanza de vida , aqui encontrara todos los datos relcionados al tema --->/esperanza,/year,/paises,/continentes]",
-            "continentes -- https://esperanzadevida.herokuapp.com/esperanzas"
-            "años -- https://esperanzadevida.herokuapp.com/year"
-            "paises  -- https://esperanzadevida.herokuapp.com/paises"
-            "continentes -- https://esperanzadevida.herokuapp.com/continentes"]
-    return (list)
+    list1 = ["bienvenidos al  api de esperanza de vida , aqui encontrara todos los datos relcionados al tema --->/esperanza,/year,/paises,/continentes"]
+    list2 = ["continentes -- https://esperanzadevida.herokuapp.com/esperanzas"]
+    list3 = ["años -- https://esperanzadevida.herokuapp.com/year"]
+    list4 = ["paises  -- https://esperanzadevida.herokuapp.com/paises"]
+    list5 = ["continentes -- https://esperanzadevida.herokuapp.com/continentes"]
+            
+            
+    return (list1,list2,list3,list4,list5)
     
 
 @app.get("/paises")
