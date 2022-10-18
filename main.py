@@ -111,7 +111,8 @@ def  year():
 def  year():
     miConexion = mysql.connector.connect( host=database_ip, user= database_username, passwd=database_password, db=database_name )
     cur = miConexion.cursor()
-    cur.execute("SELECT p.country as pais ,c.continentes as continente ,e.year,e.Desempleo_mujeres,e.Desempleo_mujeres_jóvenes_14_24_años,e.Desempleo_varones_jovenes_15_24_años,e.Desempleo_Población_activa_total,e.esperanza_vida_nacer_Mujeres,e.esperanza_vida_nacer_Varones,e.esperanza_vida_nacer_total,e.poblacion_total_salud,e.fertilidad_mujeres,e.tasa_mortalidad_bebes,e.crecimiento_masa_monetaria_inflacion,e.tasa_mort_5anios_cada_mil,e.crecimiento_poblacion,e.Tasa_fertilidad_mujeres,e.PBI_per_capita,e.desempleo_total,e.mortalidad_accidentes_transito,e.acceso_a_la_electricidad FROM tb_paises AS  p INNER JOIN tb_continente AS c ON p.id_continente = c.id_continente INNER JOIN tb_esperanza AS e ON e.country = p.id_paises;")
+    #cur.execute("SELECT p.country as pais ,c.continentes as continente ,e.year,e.Desempleo_mujeres,e.Desempleo_mujeres_jóvenes_14_24_años,e.Desempleo_varones_jovenes_15_24_años,e.Desempleo_Población_activa_total,e.esperanza_vida_nacer_Mujeres,e.esperanza_vida_nacer_Varones,e.esperanza_vida_nacer_total,e.poblacion_total_salud,e.fertilidad_mujeres,e.tasa_mortalidad_bebes,e.crecimiento_masa_monetaria_inflacion,e.tasa_mort_5anios_cada_mil,e.crecimiento_poblacion,e.Tasa_fertilidad_mujeres,e.PBI_per_capita,e.desempleo_total,e.mortalidad_accidentes_transito,e.acceso_a_la_electricidad FROM tb_paises AS  p INNER JOIN tb_continente AS c ON p.id_continente = c.id_continente INNER JOIN tb_esperanza AS e ON e.country = p.id_paises;")
+    cur.execute("SELECT p.country as pais ,c.continentes as continente ,e.* FROM tb_paises AS  p INNER JOIN tb_continente AS c ON p.id_continente = c.id_continente INNER JOIN tb_esperanza AS e ON e.country = p.id_paises;")
     datos_total  = cur.fetchall()
     for  fila  in datos_total :
         total = {
@@ -135,8 +136,44 @@ def  year():
         'PBI_per_capita':fila[17],
         'desempleo_total':fila[18],
         'mortalidad_accidentes_transito':fila[19],
-        'acceso_a_la_electricidad':fila[20]}
+        'acceso_a_la_electricidad':fila[20],
+        'id_continente':fila[21]}
         api.append(total) 
     miConexion.close()
 
     return {"api": api}
+@app.get("/api2")
+def  year():
+    miConexion = mysql.connector.connect( host=database_ip, user= database_username, passwd=database_password, db=database_name )
+    cur = miConexion.cursor()
+    cur.execute("SELECT p.country as pais ,c.continentes as continente ,e.* FROM tb_paises AS  p INNER JOIN tb_continente AS c ON p.id_continente = c.id_continente INNER JOIN tb_esperanza AS e ON e.country = p.id_paises;")
+    datos_total  = cur.fetchall()
+    for  a  in datos_total :
+        total = {
+        'pais':a[0],
+        'continentes':a[1],
+        'index':a[2],
+        'country':a[3],
+        'year':a[4],
+        'Desempleo_mujeres':a[5],
+        'Desempleo_mujeres_jóvenes_14_24_años':a[6],
+        'Desempleo_varones_jovenes_15_24_años':a[7],
+        'Desempleo_Población_activa_total':a[8],
+        'esperanza_vida_nacer_Mujeres':a[9],
+        'esperanza_vida_nacer_Varones':a[10],
+        'esperanza_vida_nacer_total':a[11],
+        'poblacion_total_salud':a[12],
+        'fertilidad_mujeres':a[13],
+        'tasa_mortalidad_bebes':a[14],
+        'crecimiento_masa_monetaria_inflacion':a[15],
+        'tasa_mort_5anios_cada_mil':a[16],
+        'crecimiento_poblacion':a[17],
+        'Tasa_fertilidad_mujeres':a[18],
+        'PBI_per_capita':a[19],
+        'desempleo_total':a[20],
+        'mortalidad_accidentes_transito': a[21],
+        'acceso_a_la_electricidad':a[22]}
+        api.append(total) 
+    miConexion.close()
+
+    return {"api2": api}
