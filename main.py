@@ -20,7 +20,8 @@ def read_root():
     list3 = ["años -- https://esperanzadevida.herokuapp.com/year"]
     list4 = ["paises  -- https://esperanzadevida.herokuapp.com/paises"]
     list5 = ["continentes -- https://esperanzadevida.herokuapp.com/continentes"]
-            
+    list5 = ["datos totales  -- https://esperanzadevida.herokuapp.com/api"]
+
             
     return (list1,list2,list3,list4,list5)
     
