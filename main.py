@@ -13,6 +13,8 @@ conti = []
 años = []
 esperanza = []
 api =[]
+
+
 @app.get("/")
 def read_root():
     list1 = ["bienvenidos al  api de esperanza de vida , aqui encontrara todos los datos relcionados al tema --->/esperanza,/year,/paises,/continentes"]
@@ -173,7 +175,11 @@ def  year():
         'PBI_per_capita':a[19],
         'desempleo_total':a[20],
         'mortalidad_accidentes_transito': a[21],
-        'acceso_a_la_electricidad':a[22]}
+        'acceso_a_la_electricidad':a[22],
+        'Inscripción_escolar_nivel_primario':a[23],
+        'Inscripción_escolar_nivel_secundaria':a[24],
+        'Inscripción_escolar_nivel_terciario':a[25]}
+
         api2.append(total) 
     miConexion.close()
 
