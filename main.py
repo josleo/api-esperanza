@@ -6,8 +6,8 @@ app = FastAPI()
 
 database_username = 'admin'
 database_password = '123456789'
-database_ip       = 'database-1.cmmt68xsoykx.us-east-1.rds.amazonaws.com'
-database_name     = 'Tabla_prueba'
+database_ip       = 'database-2.cmmt68xsoykx.us-east-1.rds.amazonaws.com'
+database_name     = 'sys'
 pais = []
 conti = []
 años = []
