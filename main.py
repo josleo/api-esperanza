@@ -227,7 +227,7 @@ def  year():
     return {"api3": api2}
 
 
-@app.get("/api3")
+@app.get("/api4")
 def  year():
     miConexion = mysql.connector.connect( host=database_ip, user= database_username, passwd=database_password, db=database_name )
     cur = miConexion.cursor()
