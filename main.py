@@ -178,7 +178,7 @@ def  year():
         'acceso_a_la_electricidad':a[22],
         'Inscripción_escolar_nivel_primario':a[23],
         'Inscripción_escolar_nivel_secundaria':a[24],
-        'Inscripción_nivel_terciario':a[25]}
+        'inscripciones_nivel_terciario':a[25]}
 
         api2.append(total) 
     miConexion.close()
@@ -219,7 +219,7 @@ def  year():
         'acceso_a_la_electricidad':a[22],
         'Inscripción_escolar_nivel_primario':a[23],
         'Inscripción_escolar_nivel_secundaria':a[24],
-        'Inscripción_nivel_terciario':a[25]}
+        'inscripciones_nivel_terciario':a[25]}
 
         api2.append(total) 
     miConexion.close()
@@ -261,7 +261,7 @@ def  year():
         'acceso_a_la_electricidad':a[22],
         'Inscripción_escolar_nivel_primario':a[23],
         'Inscripción_escolar_nivel_secundaria':a[24],
-        'Inscripción_nivel_terciario':a[25]}
+        'inscripciones_nivel_terciario':a[25]}
 
         api2.append(total) 
     miConexion.close()
