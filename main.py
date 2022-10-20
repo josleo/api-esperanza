@@ -178,7 +178,7 @@ def  year():
         'acceso_a_la_electricidad':a[22],
         'Inscripción_escolar_nivel_primario':a[23],
         'Inscripción_escolar_nivel_secundaria':a[24],
-        'Inscripción_escolar_nivel_terciario':a[25]}
+        'Inscripción_nivel_terciario':a[25]}
 
         api2.append(total) 
     miConexion.close()
@@ -219,9 +219,51 @@ def  year():
         'acceso_a_la_electricidad':a[22],
         'Inscripción_escolar_nivel_primario':a[23],
         'Inscripción_escolar_nivel_secundaria':a[24],
-        'Inscripción_escolar_nivel_terciario':a[25]}
+        'Inscripción_nivel_terciario':a[25]}
 
         api2.append(total) 
     miConexion.close()
 
-    return {"api2": api2}
+    return {"api3": api2}
+
+
+@app.get("/api3")
+def  year():
+    miConexion = mysql.connector.connect( host=database_ip, user= database_username, passwd=database_password, db=database_name )
+    cur = miConexion.cursor()
+    cur.execute("SELECT p.country as pais ,c.continentes as continente ,e.* FROM tb_paises AS  p INNER JOIN tb_continente AS c ON p.id_continente = c.id_continente INNER JOIN tb_esperanza AS e ON e.country = p.id_paises;")
+    api2=[]
+    datos_total  = cur.fetchall()
+    for  a  in datos_total :
+        total = {
+        'pais':a[0],
+        'continentes':a[1],
+        'index':a[2],
+        'country':a[3],
+        'year':a[4],
+        'Desempleo_mujeres':a[5],
+        'Desempleo_mujeres_jóvenes_14_24_años':a[6],
+        'Desempleo_varones_jovenes_15_24_años':a[7],
+        'Desempleo_Población_activa_total':a[8],
+        'esperanza_vida_nacer_Mujeres':a[9],
+        'esperanza_vida_nacer_Varones':a[10],
+        'esperanza_vida_nacer_total':a[11],
+        'poblacion_total_salud':a[12],
+        'fertilidad_mujeres':a[13],
+        'tasa_mortalidad_bebes':a[14],
+        'crecimiento_masa_monetaria_inflacion':a[15],
+        'tasa_mort_5anios_cada_mil':a[16],
+        'crecimiento_poblacion':a[17],
+        'Tasa_fertilidad_mujeres':a[18],
+        'PBI_per_capita':a[19],
+        'desempleo_total':a[20],
+        'mortalidad_accidentes_transito': a[21],
+        'acceso_a_la_electricidad':a[22],
+        'Inscripción_escolar_nivel_primario':a[23],
+        'Inscripción_escolar_nivel_secundaria':a[24],
+        'Inscripción_nivel_terciario':a[25]}
+
+        api2.append(total) 
+    miConexion.close()
+
+    return {"api4": api2}
