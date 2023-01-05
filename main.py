@@ -4,10 +4,14 @@ from fastapi import FastAPI
 import mysql.connector
 app = FastAPI()
 
-database_username = 'admin'
-database_password = '123456789'
-database_ip       = 'database-2.cmmt68xsoykx.us-east-1.rds.amazonaws.com'
-database_name     = 'sys'
+database_username = 'estacion.educatics.org'
+database_password = 'educaics_usr_est'
+database_ip       = 'F5z!xZ5jhSyg'
+database_name     = 'educaics_db_estacion'
+
+
+
+
 pais = []
 conti = []
 años = []
@@ -28,20 +32,20 @@ def read_root():
     return (list1,list2,list3,list4,list5)
     
 
-@app.get("/paises")
+@app.get("/datos")
 def  uno():
 
     miConexion = mysql.connector.connect( host=database_ip, user= database_username, passwd=database_password, db=database_name )
     cur = miConexion.cursor()
-    cur.execute("select * from tb_paises")
+    cur.execute("select * from datos")
 
     datos  = cur.fetchall()
     for  fila  in datos :
-        paises = {'id_paises':fila[0],'country':fila[1],'id_continente':fila[2]}
+        paises = {'id':fila[0],'fecha':fila[1],'uv':fila[2]}
         pais.append(paises) 
     miConexion.close()
 
-    return {"paises": pais}
+    return {"uv": pais}
 
 @app.get("/continentes")
 def  uno():
